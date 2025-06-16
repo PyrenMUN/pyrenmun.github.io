@@ -1,9 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
+    <>
+    <Head>
+      <title>PyrenMUN</title>
+      <meta name="description" content="The official website for the PyrenMUN event"/>
+    </Head>
     <main className="bg-[#F5F5F4] text-[#1E1E1E] min-h-screen font-sans">
+      {/* Navigation */}
+      <Navbar />
+
       {/* Hero Section */}
       <section className="w-full px-6 md:px-20 py-20 bg-[#153243] text-white">
         <div className="max-w-5xl mx-auto">
@@ -64,5 +74,6 @@ export default function Home() {
         </Link>
       </section>
     </main>
+    </>
   );
 }
