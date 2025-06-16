@@ -15,8 +15,8 @@ const Navbar = () => {
             MUN Pyrenees
           </Link>
           <div className="md:hidden">
-            <button onClick={() => setMenuOpen(true)} aria-label="Open menu">
-              <Menu size={28} />
+            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
           <ul className="hidden md:flex gap-6 text-sm font-medium">
@@ -29,24 +29,25 @@ const Navbar = () => {
       </nav>
 
       {/* Fullscreen Mobile Menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-white bg-opacity-95 flex flex-col justify-between px-6 py-6 md:hidden transition duration-300 ease-in-out">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="text-xl font-serif font-semibold text-[#153243]">
-              MUN Pyrenees
-            </Link>
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <X size={28} />
-            </button>
-          </div>
-          <div className="flex flex-col items-center justify-center flex-1 gap-10 text-2xl font-medium text-[#153243]">
-            <Link href="/about-mun" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">About MUN</Link>
-            <Link href="/organizers" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">Organizers</Link>
-            <Link href="/apply" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">Apply</Link>
-            <Link href="/news" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">News</Link>
-          </div>
+      <div
+        className={`fixed inset-0 bg-white bg-opacity-95 z-40 transition-opacity duration-300 ease-in-out transform ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        style={{ backdropFilter: "blur(4px)" }}
+      >
+        <div className="flex justify-between items-center px-6 py-4 sticky top-0 bg-white z-50 shadow-sm">
+          <Link href="/" className="text-xl font-serif font-semibold text-[#153243]">
+            MUN Pyrenees
+          </Link>
+          <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <X size={28} />
+          </button>
         </div>
-      )}
+        <div className="flex flex-col items-center justify-center gap-10 text-2xl font-medium text-[#153243] h-[calc(100vh-64px)]">
+          <Link href="/about-mun" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">About MUN</Link>
+          <Link href="/organizers" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">Organizers</Link>
+          <Link href="/apply" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">Apply</Link>
+          <Link href="/news" onClick={() => setMenuOpen(false)} className="hover:text-[#E4B363] transition">News</Link>
+        </div>
+      </div>
     </header>
   );
 };
