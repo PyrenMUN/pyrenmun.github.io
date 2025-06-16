@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ChevronDown, Globe, Users, Calendar, Mail, MapPin, Award, Languages, Mountain } from 'lucide-react';
 import Navbar from '@/components/navbar';
 
@@ -134,7 +134,7 @@ export default function PyrenMUN() {
                 À PROPOS
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#153243]">
-                Qu'est-ce que le MUN ?
+                Qu&apos;est-ce que le MUN ?
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
             </div>
@@ -143,10 +143,10 @@ export default function PyrenMUN() {
               <div>
                 <p className="text-xl leading-relaxed text-gray-700 mb-8">
                   Le Model United Nations (MUN) est une simulation académique des Nations Unies où les étudiants 
-                  endossent le rôle de délégués et s'engagent dans des débats diplomatiques authentiques.
+                  endossent le rôle de délégués et s&apos;engagent dans des débats diplomatiques authentiques.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-600 mb-8">
-                  C'est un espace privilégié pour développer l'art oratoire, la recherche approfondie, 
+                  C&apos;est un espace privilégié pour développer l&apos;art oratoire, la recherche approfondie, 
                   et la collaboration dans un cadre réaliste qui prépare aux défis de demain.
                 </p>
                 
@@ -220,7 +220,7 @@ export default function PyrenMUN() {
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Rejoignez des délégués passionnés venus de toute l'Europe pour cette aventure diplomatique unique
+                Rejoignez des délégués passionnés venus de toute l&apos;Europe pour cette aventure diplomatique unique
               </p>
             </div>
 
@@ -249,7 +249,7 @@ export default function PyrenMUN() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <Calendar className="w-12 h-12 text-[#E4B363] mb-6" />
                 <h3 className="text-2xl font-semibold mb-4">Jours 1-2</h3>
-                <p className="text-gray-200">Arrivée, formation aux procédures, et cérémonies d'ouverture dans un cadre montagnard exceptionnel.</p>
+                <p className="text-gray-200">Arrivée, formation aux procédures, et cérémonies d&apos;ouverture dans un cadre montagnard exceptionnel.</p>
               </div>
               
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
