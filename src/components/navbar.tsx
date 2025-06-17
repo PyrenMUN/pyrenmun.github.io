@@ -47,7 +47,7 @@ const Navbar = () => {
       href="/"
       className={clsx(
         "font-serif text-2xl font-bold transition-colors",
-        isScrolled ? "text-[#153243]" : "text-white"
+        (isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
       )}
     >
       PyrenMUN

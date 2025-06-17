@@ -1,5 +1,6 @@
 Liste des choses qu'il me manque pour le site web:
 - Logo
+- Photos
 - Charte graphique (couleur, police...)
 - Liste des pays invités
 - Langue du site (anglais seulement ? Ou toutes les langues des pays de l'UE)
