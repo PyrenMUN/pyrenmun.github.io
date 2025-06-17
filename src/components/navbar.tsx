@@ -6,6 +6,7 @@ import clsx from "clsx";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(true);
 
   const navLinks = [
     { href: "#about", label: "About" },
@@ -15,6 +16,11 @@ const Navbar = () => {
     { href: "#apply", label: "Apply" },
     { href: "#contact", label: "Contact" },
   ];
+
+  // Check if we're on the home page
+  useEffect(() => {
+    setIsHomePage(window.location.pathname === '/');
+  }, []);
 
   // Scroll effect
   useEffect(() => {
@@ -40,7 +46,7 @@ const Navbar = () => {
       <nav
         className={clsx(
           "fixed w-full z-50 transition-all duration-300",
-          isScrolled ? "bg-white/95 backdrop-blur-md" : "bg-transparent"
+          (!isHomePage || isScrolled) ? "bg-white/95 backdrop-blur-md" : "bg-transparent"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
@@ -48,7 +54,7 @@ const Navbar = () => {
             href="/"
             className={clsx(
               "font-serif text-2xl font-bold transition-colors",
-              (isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
+              (!isHomePage || isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
             )}
           >
             PyrenMUN
@@ -62,13 +68,12 @@ const Navbar = () => {
                 href={href}
                 className={clsx(
                   "transition-colors hover:text-[#E4B363]",
-                  isScrolled ? "text-[#1E1E1E]" : "text-white"
+                  (!isHomePage || isScrolled) ? "text-[#1E1E1E]" : "text-white"
                 )}
               >
                 {label}
               </a>
             ))}
-            
           </div>
 
           {/* Mobile menu button */}
@@ -77,7 +82,7 @@ const Navbar = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
               className={clsx(
-                isScrolled || menuOpen ? "text-[#153243]" : "text-white"
+                (!isHomePage || isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
               )}
             >
               {menuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -103,7 +108,6 @@ const Navbar = () => {
             {label}
           </a>
         ))}
-        
       </div>
     </>
   );
