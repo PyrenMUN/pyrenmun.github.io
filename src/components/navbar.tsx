@@ -2,10 +2,22 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const { locale } = router;
+
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#countries", label: "Countries" },
+    { href: "/topics", label: "Topics" },
+    { href: "#schedule", label: "Schedule" },
+    { href: "#apply", label: "Apply" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   // Scroll effect
   useEffect(() => {
@@ -25,14 +37,6 @@ const Navbar = () => {
       document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
-
-  const navLinks = [
-    { href: "#about", label: "À propos" },
-    { href: "#countries", label: "Pays" },
-    { href: "#schedule", label: "Programme" },
-    { href: "#apply", label: "S'inscrire" },
-    { href: "#contact", label: "Contact" },
-  ];
 
   return (
     <>
@@ -67,6 +71,7 @@ const Navbar = () => {
                 {label}
               </a>
             ))}
+            
           </div>
 
           {/* Mobile menu button */}
@@ -101,6 +106,7 @@ const Navbar = () => {
             {label}
           </a>
         ))}
+        
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { Users, Languages, Award, Mountain } from 'lucide-react';
+import { Users, Languages, Award, Mountain, Globe, BookOpen, Computer } from 'lucide-react';
 
 export const countries = [
   { name: "France", flag: "/images/flags/france.png" },
@@ -18,7 +18,7 @@ export const countries = [
 export const carousel_flags_settings = {
   dots: false,
   infinite: true,
-  speed: 3000,
+  speed: 5000,
   slidesToShow: 8,
   slidesToScroll: 1,
   autoplay: true,
@@ -29,23 +29,28 @@ export const carousel_flags_settings = {
   swipe: false,
   touchMove: false,
   draggable: false,
+  variableWidth: true,
+  adaptiveHeight: true,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
         slidesToShow: 6,
+        variableWidth: true,
       }
     },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 4,
+        variableWidth: true,
       }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 3,
+        variableWidth: true,
       }
     }
   ]
@@ -73,3 +78,78 @@ export const features = [
     description: "Experience MUN like never before in the breathtaking Pyrenees mountains, combining diplomacy with adventure."
   }
 ]; 
+
+export const allTopics = [
+  {
+    category: "Environnement",
+    icon: Globe,
+    topics: [
+      {
+        title: "Crise Climatique",
+        description: "Stratégies pour la réduction des émissions de gaz à effet de serre et l'adaptation aux changements climatiques",
+        committee: "Assemblée Générale",
+        difficulty: "Avancé"
+      },
+      {
+        title: "Biodiversité",
+        description: "Protection des écosystèmes et de la diversité biologique mondiale",
+        committee: "Conseil Économique et Social",
+        difficulty: "Intermédiaire"
+      }
+    ]
+  },
+  {
+    category: "Développement",
+    icon: BookOpen,
+    topics: [
+      {
+        title: "Sécurité Alimentaire",
+        description: "Assurer l'accès à une alimentation suffisante et nutritive pour tous",
+        committee: "FAO",
+        difficulty: "Intermédiaire"
+      },
+      {
+        title: "Éducation pour Tous",
+        description: "Promouvoir l'accès à une éducation de qualité dans les pays en développement",
+        committee: "UNESCO",
+        difficulty: "Débutant"
+      }
+    ]
+  },
+  {
+    category: "Droits Humains",
+    icon: Users,
+    topics: [
+      {
+        title: "Migration et Réfugiés",
+        description: "Gestion des flux migratoires et protection des droits des réfugiés",
+        committee: "Conseil des Droits de l'Homme",
+        difficulty: "Avancé"
+      },
+      {
+        title: "Liberté d'Expression",
+        description: "Équilibre entre liberté d'expression et lutte contre la désinformation",
+        committee: "Conseil des Droits de l'Homme",
+        difficulty: "Intermédiaire"
+      }
+    ]
+  },
+  {
+    category: "Technologie",
+    icon: Computer,
+    topics: [
+      {
+        title: "Cyber Sécurité",
+        description: "Protection des systèmes informatiques contre les cyberattaques",
+        committee: "ONU",
+        difficulty: "Intermédiaire"
+      },
+      {
+        title: "Artificial Intelligence",
+        description: "Utilisation responsable de l'intelligence artificielle",
+        committee: "ONU",
+        difficulty: "Intermédiaire"
+      }
+    ]
+  }
+];
