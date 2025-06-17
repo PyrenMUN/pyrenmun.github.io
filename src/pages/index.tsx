@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Navbar from '@/components/navbar';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -13,7 +12,7 @@ import Footer from '@/components/Footer';
 export default function PyrenMUN() {
   return (
       <div className="bg-[#F5F5F4] text-[#1E1E1E] min-h-screen font-sans">
-        <Navbar />
+      <Navbar />
       <HeroSection />
       <AboutSection />
       <TopicsSection />

@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/navbar';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -19,7 +18,7 @@ export default function Topics() {
             }}
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </Link>
 
           <div className="text-center mb-16">

@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
-import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
-  const { locale } = router;
 
   const navLinks = [
     { href: "#about", label: "About" },
