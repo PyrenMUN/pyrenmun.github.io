@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const CountriesSection: React.FC = () => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const topScrollRef = useRef<HTMLDivElement>(null);
-  const bottomScrollRef = useRef<HTMLDivElement>(null);
-
   const countries = [
     { name: "France", flag: "/images/flags/france.png" },
     { name: "Spain", flag: "/images/flags/spain.png" },
@@ -20,168 +17,96 @@ const CountriesSection: React.FC = () => {
     { name: "Portugal", flag: "/images/flags/portugal.png" },
     { name: "Austria", flag: "/images/flags/austria.png" },
     { name: "Poland", flag: "/images/flags/poland.png" },
-    { name: "Czech Republic", flag: "/images/flags/czech.png" }
+    { name: "Czech Republic", flag: "/images/flags/czech republic.png" }
   ];
 
-  // Fonction pour gérer le défilement automatique
-  const autoScroll = (element: HTMLDivElement, direction: 'left' | 'right') => {
-    if (direction === 'right') {
-      element.scrollLeft += 1;
-      if (element.scrollLeft >= element.scrollWidth - element.clientWidth) {
-        element.scrollLeft = 0;
-      }
-    } else {
-      element.scrollLeft -= 1;
-      if (element.scrollLeft <= 0) {
-        element.scrollLeft = element.scrollWidth - element.clientWidth;
-      }
-    }
-  };
-
-  useEffect(() => {
-    const topScroll = topScrollRef.current;
-    const bottomScroll = bottomScrollRef.current;
-    if (!topScroll || !bottomScroll) return;
-
-    let animationFrameId: number;
-    let lastTimestamp = 0;
-    const scrollSpeed = 1; // pixels per frame
-
-    const animate = (timestamp: number) => {
-      if (timestamp - lastTimestamp > 16) { // ~60fps
-        if (!isDragging) {
-          autoScroll(topScroll, 'right');
-          autoScroll(bottomScroll, 'left');
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 3000,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    arrows: false,
+    pauseOnHover: false,
+    swipe: false,
+    touchMove: false,
+    draggable: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 6,
         }
-        lastTimestamp = timestamp;
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+        }
       }
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isDragging]);
-
-  const handleMouseDown = (e: React.MouseEvent, ref: React.RefObject<HTMLDivElement | null>) => {
-    const element = ref.current;
-    if (!element) return;
-    setIsDragging(true);
-    setStartX(e.pageX - element.offsetLeft);
-    setScrollLeft(element.scrollLeft);
-    element.style.cursor = 'grabbing';
+    ]
   };
 
-  const handleMouseUp = (ref: React.RefObject<HTMLDivElement | null>) => {
-    setIsDragging(false);
-    if (ref.current) {
-      ref.current.style.cursor = 'grab';
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent, ref: React.RefObject<HTMLDivElement | null>) => {
-    if (!isDragging) return;
-    const element = ref.current;
-    if (!element) return;
-    e.preventDefault();
-    const x = e.pageX - element.offsetLeft;
-    const walk = (x - startX) * 2;
-    element.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchStart = (e: React.TouchEvent, ref: React.RefObject<HTMLDivElement | null>) => {
-    const element = ref.current;
-    if (!element) return;
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - element.offsetLeft);
-    setScrollLeft(element.scrollLeft);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent, ref: React.RefObject<HTMLDivElement | null>) => {
-    if (!isDragging) return;
-    const element = ref.current;
-    if (!element) return;
-    const x = e.touches[0].pageX - element.offsetLeft;
-    const walk = (x - startX) * 2;
-    element.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = (ref: React.RefObject<HTMLDivElement | null>) => {
-    setIsDragging(false);
-  };
-
-  const renderCountryCard = (country: typeof countries[0], index: number, isDuplicate = false) => (
-    <div 
-      key={`${isDuplicate ? 'duplicate-' : ''}${index}`}
-      className="flex flex-col items-center min-w-[200px] transform hover:scale-105 transition-transform duration-300"
-    >
-      <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden shadow-lg border-4 border-[#E4B363]">
-        <Image
-          src={country.flag}
-          alt={`Drapeau ${country.name}`}
-          fill
-          className="object-cover"
-        />
+  const renderCountryCard = (country: typeof countries[0]) => (
+    <div className="px-2">
+      <div className="flex flex-col items-center">
+        <div className="relative w-24 h-16 rounded-lg overflow-hidden shadow-lg border-4 border-[#E4B363] bg-white">
+          <Image
+            src={country.flag}
+            alt={`Drapeau ${country.name}`}
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-[#153243]">{country.name}</h3>
     </div>
   );
 
   return (
-    <section id="countries" className="py-24 px-6 md:px-20 bg-white overflow-hidden">
+    <section id="countries" className="py-12 px-6 md:px-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#E4B363]/10 text-[#E4B363] px-4 py-2 rounded-full text-sm font-medium mb-4">
+        <div className="text-center mb-8">
+          <span className="inline-block bg-[#E4B363]/10 text-[#E4B363] px-4 py-2 rounded-full text-sm font-medium mb-3">
             PARTICIPANTS INTERNATIONAUX
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#153243]">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#153243]">
             Pays Invités
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-4"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Rejoignez des délégués passionnés venus de toute l&apos;Europe pour cette aventure diplomatique unique
           </p>
         </div>
 
         {/* Ligne supérieure (défilement vers la droite) */}
-        <div 
-          ref={topScrollRef}
-          className="flex space-x-8 overflow-x-hidden whitespace-nowrap py-8 cursor-grab select-none"
-          onMouseDown={(e) => handleMouseDown(e, topScrollRef)}
-          onMouseUp={() => handleMouseUp(topScrollRef)}
-          onMouseMove={(e) => handleMouseMove(e, topScrollRef)}
-          onMouseLeave={() => handleMouseUp(topScrollRef)}
-          onTouchStart={(e) => handleTouchStart(e, topScrollRef)}
-          onTouchMove={(e) => handleTouchMove(e, topScrollRef)}
-          onTouchEnd={() => handleTouchEnd(topScrollRef)}
-          style={{ scrollBehavior: 'smooth' }}
-        >
-          <div className="flex space-x-8">
-            {countries.map((country, index) => renderCountryCard(country, index))}
-          </div>
-          <div className="flex space-x-8">
-            {countries.map((country, index) => renderCountryCard(country, index, true))}
-          </div>
+        <div className="mb-4">
+          <Slider {...settings}>
+            {countries.map((country, index) => (
+              <div key={index}>
+                {renderCountryCard(country)}
+              </div>
+            ))}
+          </Slider>
         </div>
 
         {/* Ligne inférieure (défilement vers la gauche) */}
-        <div 
-          ref={bottomScrollRef}
-          className="flex space-x-8 overflow-x-hidden whitespace-nowrap py-8 cursor-grab select-none"
-          onMouseDown={(e) => handleMouseDown(e, bottomScrollRef)}
-          onMouseUp={() => handleMouseUp(bottomScrollRef)}
-          onMouseMove={(e) => handleMouseMove(e, bottomScrollRef)}
-          onMouseLeave={() => handleMouseUp(bottomScrollRef)}
-          onTouchStart={(e) => handleTouchStart(e, bottomScrollRef)}
-          onTouchMove={(e) => handleTouchMove(e, bottomScrollRef)}
-          onTouchEnd={() => handleTouchEnd(bottomScrollRef)}
-          style={{ scrollBehavior: 'smooth' }}
-        >
-          <div className="flex space-x-8">
-            {countries.map((country, index) => renderCountryCard(country, index))}
-          </div>
-          <div className="flex space-x-8">
-            {countries.map((country, index) => renderCountryCard(country, index, true))}
-          </div>
+        <div>
+          <Slider {...{...settings, rtl: true}}>
+            {countries.map((country, index) => (
+              <div key={index}>
+                {renderCountryCard(country)}
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </section>
