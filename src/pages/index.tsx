@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Navbar from '@/components/navbar';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -21,4 +22,4 @@ export default function PyrenMUN() {
       <Footer />
     </div>
   );
-} 
+}

@@ -1,0 +1,52 @@
+{
+  "navbar": {
+    "about": "À propos",
+    "countries": "Pays",
+    "schedule": "Programme",
+    "apply": "S'inscrire",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "PyrenMUN 2024",
+    "subtitle": "Conférence Modèle des Nations Unies",
+    "description": "Rejoignez-nous pour une expérience diplomatique exceptionnelle au cœur des Pyrénées",
+    "cta": "S'inscrire"
+  },
+  "countries": {
+    "title": "Participants Internationaux",
+    "subtitle": "Pays Invités",
+    "description": "Rejoignez des délégués passionnés venus de toute l'Europe pour cette aventure diplomatique unique"
+  },
+  "about": {
+    "title": "À propos de PyrenMUN",
+    "subtitle": "Notre Mission",
+    "description": "PyrenMUN est une conférence Modèle des Nations Unies qui rassemble des étudiants de toute l'Europe pour débattre et trouver des solutions aux défis mondiaux."
+  },
+  "features": {
+    "title": "Pourquoi PyrenMUN ?",
+    "subtitle": "Points Forts",
+    "diplomacy": {
+      "title": "Expérience Diplomatique",
+      "description": "Développez vos compétences en négociation et en prise de parole dans un environnement réaliste de l'ONU"
+    },
+    "networking": {
+      "title": "Réseau",
+      "description": "Connectez-vous avec des étudiants d'universités prestigieuses à travers l'Europe"
+    },
+    "location": {
+      "title": "Lieu Unique",
+      "description": "Vivez la diplomatie au cœur des montagnes des Pyrénées"
+    }
+  },
+  "schedule": {
+    "title": "Programme de la Conférence",
+    "subtitle": "Calendrier des Événements"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Restons en Contact",
+    "email": "Email",
+    "phone": "Téléphone",
+    "address": "Adresse"
+  }
+} 

@@ -27,62 +27,62 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#countries", label: "Countries" },
-    { href: "#schedule", label: "Schedule" },
-    { href: "#apply", label: "Apply" },
+    { href: "#about", label: "À propos" },
+    { href: "#countries", label: "Pays" },
+    { href: "#schedule", label: "Programme" },
+    { href: "#apply", label: "S'inscrire" },
     { href: "#contact", label: "Contact" },
   ];
 
   return (
     <>
       <nav
-  className={clsx(
-    "fixed w-full z-50 transition-all duration-300",
-    isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-  )}
->
-  <div className="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
-    <Link
-      href="/"
-      className={clsx(
-        "font-serif text-2xl font-bold transition-colors",
-        (isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
-      )}
-    >
-      PyrenMUN
-    </Link>
-
-    {/* Desktop menu */}
-    <div className="hidden md:flex space-x-8">
-      {navLinks.map(({ href, label }) => (
-        <a
-          key={href}
-          href={href}
-          className={clsx(
-            "transition-colors hover:text-[#E4B363]",
-            isScrolled ? "text-[#1E1E1E]" : "text-white"
-          )}
-        >
-          {label}
-        </a>
-      ))}
-    </div>
-
-    {/* Mobile menu button */}
-    <div className="md:hidden">
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
         className={clsx(
-          isScrolled || menuOpen ? "text-[#153243]" : "text-white"
+          "fixed w-full z-50 transition-all duration-300",
+          isScrolled ? "bg-white/95 backdrop-blur-md" : "bg-transparent"
         )}
       >
-        {menuOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
-    </div>
-  </div>
-</nav>
+        <div className="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
+          <Link
+            href="/"
+            className={clsx(
+              "font-serif text-2xl font-bold transition-colors",
+              (isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
+            )}
+          >
+            PyrenMUN
+          </Link>
+
+          {/* Desktop menu */}
+          <div className="hidden md:flex space-x-8">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className={clsx(
+                  "transition-colors hover:text-[#E4B363]",
+                  isScrolled ? "text-[#1E1E1E]" : "text-white"
+                )}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              className={clsx(
+                isScrolled || menuOpen ? "text-[#153243]" : "text-white"
+              )}
+            >
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <div
