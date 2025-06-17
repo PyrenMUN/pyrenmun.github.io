@@ -10,10 +10,10 @@ export default function TopicsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block bg-[#153243]/10 text-[#153243] px-4 py-2 rounded-full text-sm font-medium mb-4">
-            SUJETS DE DISCUSSION
+            DISCUSSION TOPICS
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#153243]">
-            Défis Mondiaux
+            Global Challenges
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
         </div>
@@ -41,7 +41,7 @@ export default function TopicsSection() {
             href="/topics"
             className="inline-flex items-center px-6 py-3 bg-[#153243] text-white rounded-lg hover:bg-[#1E3A8A] transition-colors duration-300 font-semibold"
           >
-            Voir tous les sujets
+            View all topics
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>

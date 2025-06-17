@@ -8,3 +8,8 @@ export interface FeatureCardProps {
   title: string;
   description: string;
 } 
+
+export interface NavLink {
+  href: string;
+  label: string;
+}

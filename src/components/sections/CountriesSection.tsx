@@ -12,7 +12,7 @@ const CountriesSection: React.FC = () => {
         <div className="relative w-24 h-16 rounded-lg overflow-hidden shadow-lg border-3 border-[#E4B363] bg-white">
           <Image
             src={country.flag}
-            alt={`Drapeau ${country.name}`}
+            alt={`Flag of ${country.name}`}
             fill
             className="object-cover"
           />
@@ -26,18 +26,18 @@ const CountriesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <span className="inline-block bg-[#E4B363]/10 text-[#E4B363] px-4 py-2 rounded-full text-sm font-medium mb-3">
-            PARTICIPANTS INTERNATIONAUX
+            INTERNATIONAL PARTICIPANTS
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#153243]">
-            Pays Invités
+            Invited Countries
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-4"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Rejoignez des délégués passionnés venus de toute l&apos;Europe pour cette aventure diplomatique unique
+            Join passionate delegates from across Europe for this unique diplomatic adventure
           </p>
         </div>
 
-        {/* Ligne supérieure (défilement vers la droite) */}
+        {/* Top row (scrolling right) */}
         <div className="mb-4">
           <Slider {...carousel_flags_settings}>
             {countries.map((country, index) => (
@@ -48,7 +48,7 @@ const CountriesSection: React.FC = () => {
           </Slider>
         </div>
 
-        {/* Ligne inférieure (défilement vers la gauche) */}
+        {/* Bottom row (scrolling left) */}
         <div>
           <Slider {...{...carousel_flags_settings, rtl: true}}>
             {countries.map((country, index) => (
@@ -63,4 +63,4 @@ const CountriesSection: React.FC = () => {
   );
 };
 
-export default CountriesSection; 
+export default CountriesSection;

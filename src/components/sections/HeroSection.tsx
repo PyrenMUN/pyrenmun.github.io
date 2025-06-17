@@ -24,8 +24,8 @@ const HeroSection: React.FC = () => (
       </h1>
       
       <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200">
-        Une expérience diplomatique unique au cœur des Pyrénées. 
-        Rejoignez les futurs leaders européens pour une semaine inoubliable de débats, culture et aventure.
+        A unique diplomatic experience in the heart of the Pyrenees.
+        Join future European leaders for an unforgettable week of debate, culture and adventure.
       </p>
       
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => (
           href="#apply"
           className="group bg-gradient-to-r from-[#E4B363] to-[#F5D982] text-[#1E1E1E] px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-2"
         >
-          <span>Candidater Maintenant</span>
+          <span>Apply Now</span>
           <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
         </a>
         
@@ -53,4 +53,4 @@ const HeroSection: React.FC = () => (
   </section>
 );
 
-export default HeroSection; 
+export default HeroSection;

@@ -18,15 +18,15 @@ export default function Topics() {
             }}
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            Retour à l&apos;accueil
+            Back to home
           </Link>
 
           <div className="text-center mb-16">
             <span className="inline-block bg-[#153243]/10 text-[#153243] px-4 py-2 rounded-full text-sm font-medium mb-4">
-              SUJETS DE DISCUSSION
+              DISCUSSION TOPICS
             </span>
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#153243]">
-              Défis Mondiaux
+              Global Challenges
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
           </div>
@@ -37,7 +37,7 @@ export default function Topics() {
                 <div className="w-10 h-10 bg-[#153243]/10 rounded-lg flex items-center justify-center">
                   <category.icon className="w-6 h-6 text-[#153243]" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#153243]">{category.category}</h2>
+                <h2 className="text-2xl font-bold text-[#B8860B]">{category.category}</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 {category.topics.map((topic, topicIndex) => (
@@ -53,7 +53,7 @@ export default function Topics() {
                     </div>
                     <p className="text-gray-600 mb-4">{topic.description}</p>
                     <div className="text-sm text-[#B8860B]">
-                      Comité : {topic.committee}
+                      Committee: {topic.committee}
                     </div>
                   </div>
                 ))}

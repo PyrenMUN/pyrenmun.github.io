@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import { Link as ScrollLink } from "react-scroll";
+import { NavLink } from "@/types";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHomePage, setIsHomePage] = useState(true);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { href: "#about", label: "About" },
     { href: "#countries", label: "Countries" },
     { href: "/topics", label: "Topics" },
@@ -41,6 +43,43 @@ const Navbar = () => {
     };
   }, [menuOpen]);
 
+  const renderNavLink = ({ href, label }: NavLink) => {
+    const isHashLink = href.startsWith('#');
+    const sectionId = isHashLink ? href.substring(1) : href;
+
+    if (isHashLink) {
+      return (
+        <ScrollLink
+          key={href}
+          to={sectionId}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className={clsx(
+            "cursor-pointer transition-colors hover:text-[#E4B363]",
+            (!isHomePage || isScrolled) ? "text-[#1E1E1E]" : "text-white"
+          )}
+        >
+          {label}
+        </ScrollLink>
+      );
+    }
+
+    return (
+      <Link
+        key={href}
+        href={href}
+        className={clsx(
+          "transition-colors hover:text-[#E4B363]",
+          (!isHomePage || isScrolled) ? "text-[#1E1E1E]" : "text-white"
+        )}
+      >
+        {label}
+      </Link>
+    );
+  };
+
   return (
     <>
       <nav
@@ -62,18 +101,7 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-8">
-            {navLinks.map(({ href, label }) => (
-              <a
-                key={href}
-                href={href}
-                className={clsx(
-                  "transition-colors hover:text-[#E4B363]",
-                  (!isHomePage || isScrolled) ? "text-[#1E1E1E]" : "text-white"
-                )}
-              >
-                {label}
-              </a>
-            ))}
+            {navLinks.map(renderNavLink)}
           </div>
 
           {/* Mobile menu button */}
@@ -98,16 +126,38 @@ const Navbar = () => {
           menuOpen ? "translate-y-0 opacity-100 pointer-events-auto" : "-translate-y-full opacity-0 pointer-events-none"
         )}
       >
-        {navLinks.map(({ href, label }) => (
-          <a
-            key={href}
-            href={href}
-            onClick={() => setMenuOpen(false)}
-            className="hover:text-[#E4B363] transition"
-          >
-            {label}
-          </a>
-        ))}
+        {navLinks.map(({ href, label }) => {
+          const isHashLink = href.startsWith('#');
+          const sectionId = isHashLink ? href.substring(1) : href;
+
+          if (isHashLink) {
+            return (
+              <ScrollLink
+                key={href}
+                to={sectionId}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={() => setMenuOpen(false)}
+                className="cursor-pointer hover:text-[#E4B363] transition"
+              >
+                {label}
+              </ScrollLink>
+            );
+          }
+
+          return (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-[#E4B363] transition"
+            >
+              {label}
+            </Link>
+          );
+        })}
       </div>
     </>
   );

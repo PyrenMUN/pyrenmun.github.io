@@ -81,74 +81,74 @@ export const features = [
 
 export const allTopics = [
   {
-    category: "Environnement",
+    category: "Environment",
     icon: Globe,
     topics: [
       {
-        title: "Crise Climatique",
-        description: "Stratégies pour la réduction des émissions de gaz à effet de serre et l'adaptation aux changements climatiques",
-        committee: "Assemblée Générale",
-        difficulty: "Avancé"
+        title: "Climate Crisis",
+        description: "Strategies for reducing greenhouse gas emissions and adapting to climate change",
+        committee: "General Assembly",
+        difficulty: "Advanced"
       },
       {
-        title: "Biodiversité",
-        description: "Protection des écosystèmes et de la diversité biologique mondiale",
-        committee: "Conseil Économique et Social",
-        difficulty: "Intermédiaire"
+        title: "Biodiversity",
+        description: "Protection of ecosystems and global biological diversity",
+        committee: "Economic and Social Council",
+        difficulty: "Intermediate"
       }
     ]
   },
   {
-    category: "Développement",
+    category: "Development",
     icon: BookOpen,
     topics: [
       {
-        title: "Sécurité Alimentaire",
-        description: "Assurer l'accès à une alimentation suffisante et nutritive pour tous",
+        title: "Food Security",
+        description: "Ensuring access to sufficient and nutritious food for all",
         committee: "FAO",
-        difficulty: "Intermédiaire"
+        difficulty: "Intermediate"
       },
       {
-        title: "Éducation pour Tous",
-        description: "Promouvoir l'accès à une éducation de qualité dans les pays en développement",
+        title: "Education for All",
+        description: "Promoting access to quality education in developing countries",
         committee: "UNESCO",
-        difficulty: "Débutant"
+        difficulty: "Beginner"
       }
     ]
   },
   {
-    category: "Droits Humains",
+    category: "Human Rights",
     icon: Users,
     topics: [
       {
-        title: "Migration et Réfugiés",
-        description: "Gestion des flux migratoires et protection des droits des réfugiés",
-        committee: "Conseil des Droits de l'Homme",
-        difficulty: "Avancé"
+        title: "Migration and Refugees",
+        description: "Managing migration flows and protecting refugee rights",
+        committee: "Human Rights Council",
+        difficulty: "Advanced"
       },
       {
-        title: "Liberté d'Expression",
-        description: "Équilibre entre liberté d'expression et lutte contre la désinformation",
-        committee: "Conseil des Droits de l'Homme",
-        difficulty: "Intermédiaire"
+        title: "Freedom of Expression",
+        description: "Balancing freedom of expression with combating disinformation",
+        committee: "Human Rights Council",
+        difficulty: "Intermediate"
       }
     ]
   },
   {
-    category: "Technologie",
+    category: "Technology",
     icon: Computer,
     topics: [
       {
-        title: "Cyber Sécurité",
-        description: "Protection des systèmes informatiques contre les cyberattaques",
-        committee: "ONU",
-        difficulty: "Intermédiaire"
+        title: "Cyber Security",
+        description: "Protection of computer systems against cyber attacks",
+        committee: "UN",
+        difficulty: "Intermediate"
       },
       {
         title: "Artificial Intelligence",
-        description: "Utilisation responsable de l'intelligence artificielle",
-        committee: "ONU",
-        difficulty: "Intermédiaire"
+        description: "Responsible use of artificial intelligence",
+        committee: "UN",
+        difficulty: "Intermediate"
       }
     ]
   }

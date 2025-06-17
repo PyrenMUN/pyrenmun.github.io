@@ -7,10 +7,10 @@ const FeaturesSection: React.FC = () => (
     <div className="max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <span className="inline-block bg-[#153243]/10 text-[#153243] px-4 py-2 rounded-full text-sm font-medium mb-4">
-          POURQUOI NOUS REJOINDRE
+          WHY JOIN US
         </span>
         <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#153243]">
-          Une Expérience Transformatrice
+          A Transformative Experience
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-[#E4B363] to-[#F5D982] mx-auto mb-8"></div>
       </div>
