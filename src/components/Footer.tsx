@@ -1,9 +1,12 @@
 import React from 'react';
+import LogoTitle from './LogoTitle';
 
 const Footer: React.FC = () => (
   <footer className="bg-[#153243] text-white py-12 px-6">
     <div className="max-w-7xl mx-auto text-center">
-      <div className="font-serif text-3xl font-bold mb-4">PyrenMUN</div>
+      <div className="mb-4 flex justify-center">
+        <LogoTitle size="lg" />
+      </div>
       <p className="text-gray-300 mb-6">March 3–9, 2026 • Pyrénées, France</p>
       <div className="flex justify-center space-x-8 text-sm text-gray-400">
         <a href="mailto:pyrenmun@gmail.com" className="hover:text-[#E4B363] transition-colors">

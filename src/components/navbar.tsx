@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { Link as ScrollLink } from "react-scroll";
 import { NavLink } from "@/types";
+import LogoTitle from "./LogoTitle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,12 +92,9 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-20 py-4 flex justify-between items-center">
           <Link
             href="/"
-            className={clsx(
-              "font-serif text-2xl font-bold transition-colors",
-              (!isHomePage || isScrolled || menuOpen) ? "text-[#153243]" : "text-white"
-            )}
+            className="transition-opacity hover:opacity-80"
           >
-            PyrenMUN
+            <LogoTitle size="md" />
           </Link>
 
           {/* Desktop menu */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown, Mail } from 'lucide-react';
+import Image from 'next/image';
 
 const HeroSection: React.FC = () => (
   <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -16,12 +17,25 @@ const HeroSection: React.FC = () => (
         </span>
       </div>
       
-      <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 leading-tight">
-        <span className="block">MUN in the</span>
-        <span className="block bg-gradient-to-r from-[#E4B363] to-[#F5D982] bg-clip-text text-transparent">
-          Pyrenees
-        </span>
-      </h1>
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight">
+          <span className="block">MUN in the</span>
+          <span className="block bg-gradient-to-r from-[#E4B363] to-[#F5D982] bg-clip-text text-transparent">
+            Pyrenees
+          </span>
+        </h1>
+        
+        {/* Logo positioned to the right of the title */}
+        <div className="lg:flex-shrink-0">
+          <Image
+            src="/images/logo/logo-only.png"
+            alt="PyrenMUN Logo"
+            width={300}
+            height={300}
+            className="object-contain"
+          />
+        </div>
+      </div>
       
       <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-gray-200">
         A unique diplomatic experience in the heart of the Pyrenees.
